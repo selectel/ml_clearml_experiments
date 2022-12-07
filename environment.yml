@@ -1,0 +1,38 @@
+name: clearml_experiments
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - _py-xgboost-mutex=2.0
+  - blas=1.0
+  - ca-certificates=2022.9.24
+  - certifi=2022.9.24
+  - fftw=3.3.9
+  - libcxx=14.0.6
+  - libffi=3.4.2
+  - libgfortran=5.0.0
+  - libgfortran5=11.3.0
+  - libopenblas=0.3.21
+  - libxgboost=1.5.0
+  - lightgbm=3.1.1
+  - llvm-openmp=14.0.6
+  - ncurses=6.3
+  - numpy-base=1.23.4
+  - openssl=1.1.1s
+  - pip=22.2.2
+  - py-xgboost=1.5.0
+  - python=3.8.15
+  - readline=8.2
+  - scikit-learn=1.1.3
+  - setuptools=65.5.0
+  - sqlite=3.40.0
+  - tk=8.6.12
+  - wheel=0.37.1
+  - xgboost=1.5.0
+  - xz=5.2.8
+  - zlib=1.2.13
+  - pip:
+    - joblib==1.2.0
+    - numpy==1.23.5
+    - scipy==1.9.3
+    - threadpoolctl==3.1.0
