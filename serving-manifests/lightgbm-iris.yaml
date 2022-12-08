@@ -1,0 +1,11 @@
+apiVersion: serving.kserve.io/v1beta1
+kind: InferenceService
+metadata:
+  name: lightgbm-iris
+spec:
+  predictor:
+    serviceAccountName: sa
+    lightgbm:
+      runtimeVersion: v0.8.0
+      protocolVersion: v1
+      storageUri: "s3://[BUCKET NAME]/clearml/MASTER-CLASS/Iris/[YOUR TASK NAME].[YOUR TASK ID]/models"

@@ -1,0 +1,11 @@
+apiVersion: serving.kserve.io/v1beta1
+kind: InferenceService
+metadata:
+  name: xgboost-iris
+spec:
+  predictor:
+    serviceAccountName: sa
+    xgboost:
+      runtimeVersion: 0.2.1
+      protocolVersion: v2
+      storageUri: "s3://[BUCKET NAME]/clearml/MASTER-CLASS/Iris/[YOUR TASK NAME].[YOUR TASK ID]/models"
