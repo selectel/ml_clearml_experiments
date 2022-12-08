@@ -17,7 +17,7 @@ params = {
     'max_depth': 6,
     'eta': 0.1,
     'nthread': 4,
-    'num_class': 10,
+    'num_class': 3,
     'objective': 'multi:softmax',
     'eval_metric': 'mlogloss',
     'verbosity': 3,
