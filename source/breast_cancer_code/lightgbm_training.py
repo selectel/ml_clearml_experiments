@@ -1,12 +1,9 @@
 import lightgbm as lgb
 import numpy as np
-from sklearn.datasets import load_iris
-from sklearn.metrics import classification_report
+from sklearn.datasets import load_breast_cancer
 from sklearn.model_selection import train_test_split
 
 from sklearn.metrics import precision_score, recall_score, f1_score
-
-import pandas as pd
 
 import os
 
@@ -17,7 +14,7 @@ params = {
     'max_depth': 6,
     'eta': 0.1,
     'nthread': 4,
-    'num_class': 3,
+    'num_class': 2,
     'objective': 'multiclass',
     'metric': 'softmax',
     'verbosity': 3,
@@ -25,16 +22,16 @@ params = {
     'test_size': 0.2
 }
 
-task = Task.init('MASTER-CLASS/Iris', 'LightGBM training', tags=['lightgbm'])
+task = Task.init('MASTER-CLASS/Breast_Cancer', 'LightGBM training', tags=['lightgbm'])
 task.connect(params)
 
 model_dir = "."
 BST_FILE = "model.bst"
 
-iris = load_iris()
+breast_cancer = load_breast_cancer()
 
-y = iris['target']
-X = iris['data']
+y = breast_cancer['target']
+X = breast_cancer['data']
 
 X_train, X_test, y_train, y_test = train_test_split(
     X, y,
@@ -71,37 +68,21 @@ y_pred = lgb_model_saved.predict(X_test)
 
 y_pred = np.argmax(y_pred, axis=1)
 
-target_names = [
-    'Iris Setosa',
-    'Iris Versicolour',
-    'Iris Virginica'
-]
-
-classification_report_dict = classification_report(y_test, y_pred, target_names=target_names, output_dict=True)
-
-df = pd.DataFrame(data=classification_report_dict).T
-
-Logger.current_logger().report_table(
-    title='Classification report',
-    series='',
-    iteration=0,
-    table_plot=df
-)
 Logger.current_logger().report_scalar(
     title='precision',
-    series='macro',
-    value=precision_score(y_test, y_pred, average="macro"),
+    series='binary',
+    value=precision_score(y_test, y_pred, average="binary"),
     iteration=0
 )
 Logger.current_logger().report_scalar(
     title='recall',
-    series='macro',
-    value=recall_score(y_test, y_pred, average="macro"),
+    series='binary',
+    value=recall_score(y_test, y_pred, average="binary"),
     iteration=0
 )
 Logger.current_logger().report_scalar(
     title='f1',
-    series='macro',
-    value=f1_score(y_test, y_pred, average="macro"),
+    series='binary',
+    value=f1_score(y_test, y_pred, average="binary"),
     iteration=0
 )
