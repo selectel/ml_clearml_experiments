@@ -1,0 +1,134 @@
+{
+	"info": {
+		"_postman_id": "e8077caa-7f4e-4d9f-89f4-8e7490a82a16",
+		"name": "KServe Models",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Iris-v2-ClearML",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"user-agent": true,
+					"accept": true,
+					"accept-encoding": true,
+					"host": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Host",
+						"value": "{{SERVICE_HOSTNAME}}",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"inputs\": [\n    {\n      \"name\": \"input-0\",\n      \"shape\": [2, 4],\n      \"datatype\": \"FP32\",\n      \"data\": [\n        [6.8, 2.8, 4.8, 1.4],\n        [6.0, 3.4, 4.5, 1.6]\n      ]\n    }\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://deploy.testing.mlops.selcloud.ru/v2/models/{{MODEL_NAME}}/infer",
+					"protocol": "http",
+					"host": [
+						"deploy",
+						"testing",
+						"mlops",
+						"selcloud",
+						"ru"
+					],
+					"path": [
+						"v2",
+						"models",
+						"{{MODEL_NAME}}",
+						"infer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Iris-v1-ClearML",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"user-agent": true,
+					"accept": true,
+					"accept-encoding": true,
+					"host": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Host",
+						"value": "{{SERVICE_HOSTNAME}}",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"inputs\": [\n        [\n            {\"sepal_width_(cm)\": 6.8, \"petal_length_(cm)\": 2.8, \"petal_width_(cm)\": 4.8, \"sepal_length_(cm)\": 1.4},\n            {\"sepal_width_(cm)\": 6.0, \"petal_length_(cm)\": 3.4, \"petal_width_(cm)\": 4.5, \"sepal_length_(cm)\": 1.6}\n        ]\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://deploy.testing.mlops.selcloud.ru/v1/models/{{MODEL_NAME}}:predict",
+					"protocol": "http",
+					"host": [
+						"deploy",
+						"testing",
+						"mlops",
+						"selcloud",
+						"ru"
+					],
+					"path": [
+						"v1",
+						"models",
+						"{{MODEL_NAME}}:predict"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
