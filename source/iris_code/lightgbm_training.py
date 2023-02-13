@@ -25,7 +25,7 @@ params = {
     'test_size': 0.2
 }
 
-task = Task.init('MASTER-CLASS/Iris', 'LightGBM training', tags=['lightgbm'])
+task = Task.init('DEMO/Iris', 'LightGBM training', tags=['lightgbm'])
 task.connect(params)
 
 model_dir = "."

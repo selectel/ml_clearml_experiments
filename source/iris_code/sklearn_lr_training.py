@@ -25,7 +25,7 @@ params = {
     'fit_intercept': True
 }
 
-task = Task.init('MASTER-CLASS/Iris', 'Scikit-Learn training: LogisticRegression', tags=['scikit-learn'])
+task = Task.init('DEMO/Iris 1', 'Scikit-Learn training: LogisticRegression', tags=['scikit-learn'])
 task.connect(params)
 
 model_dir = "."

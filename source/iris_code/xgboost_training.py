@@ -25,7 +25,7 @@ params = {
     'test_size': 0.2
 }
 
-task = Task.init('MASTER-CLASS/Iris', 'XGBoost training', tags=['xgboost'])
+task = Task.init('DEMO/Iris', 'XGBoost training', tags=['xgboost'])
 task.connect(params)
 
 model_dir = "."
