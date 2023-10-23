@@ -28,7 +28,7 @@ task.connect(params)
 model_dir = "."
 BST_FILE = "model.joblib"
 
-breast_cancer = load_breast_cancer()
+breast_cancer = load_breast_cancer() # https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic
 
 y = breast_cancer['target']
 X = breast_cancer['data']
