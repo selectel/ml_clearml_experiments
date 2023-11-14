@@ -23,6 +23,8 @@ params = {
 }
 
 task = Task.init('MASTER-CLASS/Breast_Cancer', 'Scikit-Learn training: LogisticRegression', tags=['scikit-learn'])
+
+task.execute_remotely(queue_name="cpu_scheduler", exit_process=True)
 task.connect(params)
 
 model_dir = "."

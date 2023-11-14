@@ -6,6 +6,6 @@ spec:
   predictor:
     serviceAccountName: sa
     sklearn:
-      runtimeVersion: 0.2.1
+      runtimeVersion: 1.3.5
       protocolVersion: v2
       storageUri: "s3://[BUCKET NAME]/clearml/MASTER-CLASS/Iris/[YOUR TASK NAME].[YOUR TASK ID]/models"
